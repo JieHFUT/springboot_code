@@ -1,7 +1,6 @@
 package com.jiehfut.bspringbootinitializr.config;
 
 import com.jiehfut.bspringbootinitializr.bean.User;
-import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -31,6 +30,7 @@ public class UserConfig {
         user.setName("lisi");
         return user;
     }
+
 
 
 
