@@ -1,5 +1,7 @@
 package com.jiehfut.bspringbootinitializr;
 
+import com.jiehfut.bspringbootinitializr.bean.Conf;
+import com.jiehfut.bspringbootinitializr.bean.Conf1;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -23,6 +25,14 @@ public class BSpringbootInitializrApplication {
         System.out.println(user);
         Object lisi = ioc.getBean("lisi");
         System.out.println(lisi);
+
+
+        Conf conf = ioc.getBean(Conf.class);
+        System.out.println(conf); // Conf(id=10, name=张三, age=20)
+
+        Conf1 conf1 = ioc.getBean(Conf1.class);
+        System.out.println(conf1); // Conf1(id=20, name=李四, age=30)
+
     }
 
 }
