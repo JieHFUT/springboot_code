@@ -2,6 +2,7 @@ package com.jiehfut.bspringbootinitializr;
 
 import com.jiehfut.bspringbootinitializr.bean.Conf;
 import com.jiehfut.bspringbootinitializr.bean.Conf1;
+import com.jiehfut.bspringbootinitializr.bean.yaml.Person;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -17,7 +18,7 @@ public class BSpringbootInitializrApplication {
         String[] beanDefinitionNames = ioc.getBeanDefinitionNames();
         // 遍历组件：dispatcherServlet beanNameViewResolver  characterEncodingFilter...
         for (String beanDefinitionName : beanDefinitionNames) {
-            System.out.println(beanDefinitionName);
+            // System.out.println(beanDefinitionName);
         }
 
         // 获取刚才注册的用户组件，默认是单实例的
@@ -32,6 +33,19 @@ public class BSpringbootInitializrApplication {
 
         Conf1 conf1 = ioc.getBean(Conf1.class);
         System.out.println(conf1); // Conf1(id=20, name=李四, age=30)
+
+        /**
+         * application.properties 配置 Person 类
+         *
+         */
+        Person person = ioc.getBean(Person.class);
+        System.out.println(person);
+        // Person(name=zhangsan, age=18, birthDay=Tue Oct 12 12:12:12 CST 2010, like=true,
+        // child=Child(name=lisi, age=12, birthDay=null, text=[abc, qww]),
+        // dogs=[Dog(name=xiaohuang, age=2), Dog(name=xoiaobai, age=3)],
+        // cats={c1=Cat(name=xiaorong, age=2), c2=Cat(name=xiaoruan, age=2)})
+        
+
 
     }
 
@@ -83,5 +97,8 @@ public class BSpringbootInitializrApplication {
      * 3.完成业务代码，无需关心各种整合
      *
      */
+
+
+
 
 }
