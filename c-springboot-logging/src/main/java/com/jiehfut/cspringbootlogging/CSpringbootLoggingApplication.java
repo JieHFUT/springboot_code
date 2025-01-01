@@ -35,6 +35,9 @@ public class CSpringbootLoggingApplication {
      *     </dependency>
      * </dependencies>
      *
+     * 日志形式：时间日期-日志级别-进程ID-线程名-类名-消息
+     * 2025-01-01T20:20:07.978+08:00  INFO 84372 --- [b-springboot-initializr] [           main] c.j.b.BSpringbootInitializrApplication   : Starting BSpringbootInitializrApplication using Java 17.0.12 with PID 84372 (E:\code\springboot_code\b-springboot-initializr\target\classes started by 34927 in E:\code\springboot_code)
+     *
      * @param args
      */
     public static void main(String[] args) {

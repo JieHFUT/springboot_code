@@ -49,6 +49,30 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+
+
+        <!--
+            spring 底层默认使用 logback，如果你想使用 log4j2，可以利用 maven 的就近原则
+            spring-boot-starter-web => spring-boot-starter => spring-boot-starter-logging
+            覆该该依赖导入
+
+             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-log4j2</artifactId>
+            </dependency>
+        -->
     </dependencies>
 
     <build>
