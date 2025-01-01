@@ -28,7 +28,7 @@ public class BSpringbootInitializrApplication {
 
 
         Conf conf = ioc.getBean(Conf.class);
-        System.out.println(conf); // Conf(id=10, name=张三, age=20)
+        System.out.println(conf);  // Conf(id=10, name=张三, age=20)
 
         Conf1 conf1 = ioc.getBean(Conf1.class);
         System.out.println(conf1); // Conf1(id=20, name=李四, age=30)
@@ -81,9 +81,6 @@ public class BSpringbootInitializrApplication {
      *
      * 2.主程序 @SpringBootApplication
      * 3.完成业务代码，无需关心各种整合
-     *
-     *
-     *
      *
      */
 
