@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.CacheControl;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -14,6 +15,13 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 public class StaticResourcesConfig implements WebMvcConfigurer {
 
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // 添加一个自己定义的拦截器
+        // WebMvcConfigurer.super.addInterceptors(registry);
+
+    }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -30,7 +38,8 @@ public class StaticResourcesConfig implements WebMvcConfigurer {
     }
 
     /**
-     * 也可以不实现 WebMvcConfigurer 接口
+     * 也可以不实现 WebMvcConfigurer 接口，容器中只要有一个 WebMvcConfigurer 组件，在该
+     * 组件中配置了底层信息
      *
      * @Configuration
      * public class StaticResourcesConfig {
@@ -46,6 +55,31 @@ public class StaticResourcesConfig implements WebMvcConfigurer {
      *                         .setCacheControl(CacheControl.maxAge(12, TimeUnit.SECONDS));
      *             }
      *         };
+     *     }
+     * }
+     *
+     *
+     *
+     *
+     *
+     * 为什么容器中放置一个 WebMvcConfigurer 组件就能够配置生效
+     * ==> 利用自动注入
+     * WebMvcAutoConfiguration 是一个自动配置类，里面有一个内部类 EnableWebMvcConfiguration
+     * EnableWebMvcConfiguration 继承了 DelegatingWebMvcConfiguration（这两个都会生效）
+     * DelegatingWebMvcConfiguration 该类调用每一个 xxxConfigurer（）里面的方法
+     * WebMvcConfigurer 接口里面的方法会被 DelegatingWebMvcConfiguration.configurePathMatch()... 调用
+     *
+     * 总结就是别人调用 DelegatingWebMvcConfiguration里面的方法来配置底层规则，而它就会调用所有 WebMvcConfigurer
+     *
+     *
+     * @Configuration(proxyBeanMethods = false)
+     * public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
+     * 	   private final WebMvcConfigurerComposite configurers = new WebMvcConfigurerComposite();
+     * 	   下面利用 DI 将容器中的所有 WebMvcConfigurer都注入进来，List
+     * 	   @Autowired(required = false)
+     * 	   public void setConfigurers(List<WebMvcConfigurer> configurers) {
+     * 	      if (!CollectionUtils.isEmpty(configurers)) {
+     * 		  this.configurers.addWebMvcConfigurers(configurers);
      *     }
      * }
      */
