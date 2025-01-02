@@ -4,10 +4,14 @@ package com.jiehfut.dspringbootweb2.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.AntPathMatcher;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.util.UrlPathHelper;
 
 /**
      *：表示任意数量的字符。
@@ -36,5 +40,47 @@ public class PathController {
         // uri = /awwu/bo/aabbcdefffb/aaa/bbb
         return uri;
     }
+
+
+/*
+
+
+
+   public interface WebMvcConfigurer {
+       default void configurePathMatch(PathMatchConfigurer configurer) {}
+   }
+
+   public class WebMvcAutoConfiguration {
+
+       public static class WebMvcAutoConfigurationAdapter{
+           configurePathMatch() 如下
+           在这个方法中，WebMvcProperties mvcProperties 中匹配策略是哪一个，就使用哪一个
+           在 WebMvcProperties 中，默认是枚举类型，默认使用 PATH_PATTERN_PARSER，如果你在
+           配置中配置了 spring.mvc.pathmatch.matching-strategy=path_pattern_parser，就使用配置的匹配策略
+            	public enum MatchingStrategy {
+                    ANT_PATH_MATCHER,
+                    PATH_PATTERN_PARSER
+                }
+       }
+   }
+
+
+
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+        if (this.mvcProperties.getPathmatch()
+                .getMatchingStrategy() == WebMvcProperties.MatchingStrategy.ANT_PATH_MATCHER) {
+            configurer.setPathMatcher(new AntPathMatcher());
+            this.dispatcherServletPath.ifAvailable((dispatcherPath) -> {
+                String servletUrlMapping = dispatcherPath.getServletUrlMapping();
+                if (servletUrlMapping.equals("/") && singleDispatcherServlet()) {
+                    UrlPathHelper urlPathHelper = new UrlPathHelper();
+                    urlPathHelper.setAlwaysUseFullPath(true);
+                    configurer.setUrlPathHelper(urlPathHelper);
+                }
+            });
+        }
+    }
+*/
 
 }
