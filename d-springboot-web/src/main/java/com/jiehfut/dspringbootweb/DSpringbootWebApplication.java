@@ -33,13 +33,10 @@ public class DSpringbootWebApplication {
      * org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration
      *
      * 这些配置类又绑定了配置文件的一堆配置项
-     * SpringMVC: spring.mvc
-     * Web: spring.web
-     * 文件上传: spring.servlet.multipart
-     * 服务器: server
-     *
-     *
-     *
+     * SpringMVC => spring.mvc
+     * Web       => spring.web
+     * 文件上传    => spring.servlet.multipart
+     * 服务器     => server
      *
      *
      * @param args
