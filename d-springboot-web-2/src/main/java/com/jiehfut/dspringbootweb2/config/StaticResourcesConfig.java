@@ -1,14 +1,17 @@
 package com.jiehfut.dspringbootweb2.config;
 
 
+import com.jiehfut.dspringbootweb2.component.MyYamlHttpMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.CacheControl;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 // @EnableWebMvc // 使用该注解会禁止默认配置信息
@@ -84,6 +87,19 @@ public class StaticResourcesConfig implements WebMvcConfigurer {
      * }
      */
 
+    /**
+     * 配置一个新的消息转换器
+     * 配置一个能够将对象转换为 yaml 对象的 message 转换器
+     * 1.添加引用（在 pom.xml 中配置媒体类型支持）
+     * 2.编写配置 application.properties，新增一种媒体类型
+     * 3.增加一个 MessageConverter 组件（MyYamlHttpMessageConverter）
+     * 4.在 WebMvcConfigurer 容器中放置该组件
+     * @param converters
+     */
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(new MyYamlHttpMessageConverter());
+    }
 
 
 }

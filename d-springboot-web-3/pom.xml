@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.jiehfut</groupId>
-    <artifactId>d-springboot-web-2</artifactId>
+    <artifactId>d-springboot-web-3</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>d-springboot-web-2</name>
-    <description>d-springboot-web-2</description>
+    <name>d-springboot-web-3</name>
+    <description>d-springboot-web-3</description>
     <url/>
     <licenses>
         <license/>
@@ -30,6 +30,11 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
+        <!--模板引擎-ThymeleafAutoConfiguration-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -45,17 +50,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--可以将对象写出为 xml 文档-->
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-xml</artifactId>
-        </dependency>
-        <!--可以将对象写出为 yaml 文档-->
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-yaml</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>

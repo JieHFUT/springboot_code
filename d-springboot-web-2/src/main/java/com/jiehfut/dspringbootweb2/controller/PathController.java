@@ -53,6 +53,7 @@ public class PathController {
    public class WebMvcAutoConfiguration {
 
        public static class WebMvcAutoConfigurationAdapter{
+       ==================================================================
            configurePathMatch() 如下
            在这个方法中，WebMvcProperties mvcProperties 中匹配策略是哪一个，就使用哪一个
            在 WebMvcProperties 中，默认是枚举类型，默认使用 PATH_PATTERN_PARSER，如果你在
@@ -61,6 +62,7 @@ public class PathController {
                     ANT_PATH_MATCHER,
                     PATH_PATTERN_PARSER
                 }
+       ===================================================================
        }
    }
 
