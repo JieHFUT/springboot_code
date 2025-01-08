@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.jiehfut</groupId>
-    <artifactId>d-springboot-web-3</artifactId>
+    <artifactId>d-springboot-web-5</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>d-springboot-web-3</name>
-    <description>d-springboot-web-3</description>
+    <name>d-springboot-web-5</name>
+    <description>d-springboot-web-5</description>
     <url/>
     <licenses>
         <license/>
@@ -30,7 +30,6 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
-        <!--模板引擎-ThymeleafAutoConfiguration-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -50,11 +49,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <!--springBoot 引入的页面热部署效果 ctrl + F9-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
         </dependency>
     </dependencies>
 
