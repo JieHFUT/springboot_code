@@ -85,7 +85,6 @@ public class BSpringbootInitializrApplication {
      * 这个注解的作用就是在项目启动的时候，利用 @Import(***.class) 注解
      * 批量导入机制把 spring-boot-autoconfigure 包下的142个***AutoConfigration 类导入进来（自动配置）
      * 但是不是这 142 个类（自动配置类）都注入容器中，每一个自动配置类都有条件注解，即为按需配置
-     *
      * 每一个自动配置类 ***AutoConfigration 类
      *      1.按需加载进来的给容器中使用 @Bean 放置了一对组件
      *      2.每个自动配置类，都可能有注解 @EnableConfigurationProperties({ServerProperties.class})
