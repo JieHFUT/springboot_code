@@ -94,8 +94,6 @@ public class BSpringbootInitializrApplication {
      * 2.主程序 @SpringBootApplication
      * 3.完成业务代码，无需关心各种整合
      *
-     *
-     *
      */
 
 
