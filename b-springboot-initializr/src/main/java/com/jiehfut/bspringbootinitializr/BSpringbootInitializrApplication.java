@@ -95,10 +95,6 @@ public class BSpringbootInitializrApplication {
      * 3.完成业务代码，无需关心各种整合
      *
      *
-     *
-     *
-     *
-     *
      */
 
 
