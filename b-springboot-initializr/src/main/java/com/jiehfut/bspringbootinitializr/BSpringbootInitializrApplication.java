@@ -92,8 +92,7 @@ public class BSpringbootInitializrApplication {
      * 说明这些自动配置类 ***AutoConfigration 类里面的一些核心属性都来自于 ***Properties 属性类中
      * ***Properties 属性类即是和配置文件进行绑定的，所以可以通过更改配置文件信息来修改配置信息
      * 2.主程序 @SpringBootApplication
-     * 3.完成业务代码，无需关心各种整合
-
+     * 3.完成业务代码，无需关心各种整
      *
      */
 
