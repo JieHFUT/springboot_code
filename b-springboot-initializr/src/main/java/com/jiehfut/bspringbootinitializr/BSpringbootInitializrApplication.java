@@ -93,8 +93,6 @@ public class BSpringbootInitializrApplication {
      * ***Properties 属性类即是和配置文件进行绑定的，所以可以通过更改配置文件信息来修改配置信息
      * 2.主程序 @SpringBootApplication
      * 3.完成业务代码，无需关心各种整
-     *
-
      */
 
 
